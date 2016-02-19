@@ -1,7 +1,7 @@
-react-webpack-express
+article-tracker
 =====================
 
-Boilerplate to start developing npm react components with webpack. Includes flux as npm module.
+A simple article tracker app using React
 
 
 Usage
