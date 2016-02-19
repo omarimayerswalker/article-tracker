@@ -1,4 +1,6 @@
 var React = require('react');
+var ArticleListComponent = require('./ArticleListComponent.jsx');
+var ArticleInputFormComponent = require('./ArticleInputFormComponent.jsx');
 
 var ArticleTrackerComponent = React.createClass({
 

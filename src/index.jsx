@@ -1,8 +1,9 @@
-var React         = require('react'),
-    ReactDOM      = require('react-dom'),
-    TestComponent = require('./components/TestComponent.jsx');
+var React         = require('react');
+var ReactDOM      = require('react-dom');
+/* var TestComponent = require('./components/TestComponent.jsx'); */
+var ArticleTrackerComponent = require('./components/ArticleTrackerComponent.jsx');
 
 ReactDOM.render(
-  <TestComponent/>,
+  <ArticleTrackerComponent />,
   document.getElementById("react-container")
 );
