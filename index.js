@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * An example for exporting as npm module.
  *
