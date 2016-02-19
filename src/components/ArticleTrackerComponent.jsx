@@ -2,6 +2,8 @@ var React = require('react');
 var ArticleListComponent = require('./ArticleListComponent.jsx');
 var ArticleInputFormComponent = require('./ArticleInputFormComponent.jsx');
 
+/* var ArticleTrackerActions = require('../actions/ArticleTrackerActions.jsx'); */
+
 var ArticleTrackerComponent = React.createClass({
 
   getInitialState: function() {
@@ -10,7 +12,7 @@ var ArticleTrackerComponent = React.createClass({
 
   loadArticlesFromServer: function() {
     $.ajax({
-      url: this.props.url,
+      url: '/api/articles',
       datatype: 'json',
       cache: false,
       success: function(data) {
