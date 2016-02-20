@@ -12,7 +12,7 @@ var ArticleTrackerComponent = React.createClass({
 
   loadArticlesFromServer: function() {
     $.ajax({
-      url: '/api/articles',
+      url: this.props.url,
       datatype: 'json',
       cache: false,
       success: function(data) {
