@@ -2,7 +2,6 @@ var React = require('react');
 
 var ArticleListComponent = React.createClass({
   render: function() {
-    console.log('>>>>>>>>>>>>>>>', this.props.data);
     var articles = this.props.data.map(function(article) {
       return (
         <Article key={article.id}>
