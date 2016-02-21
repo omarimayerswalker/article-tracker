@@ -22,7 +22,7 @@ router.get('/api/articles', function(req, res, next) {
       if (articles.length > 0) {
         return res.send(articles);
       } else {
-        return res.send([{title: 'No Data'}]);
+        return res.send([{title: 'No articles have been added'}]);
       }
     });
 });

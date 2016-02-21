@@ -5,9 +5,7 @@ var ArticleListComponent = React.createClass({
   render: function() {
     var articles = this.props.data.map(function(article) {
       return (
-        <ArticleComponent key={article.id}>
-          {article.title}
-        </ArticleComponent>
+        <ArticleComponent title={article.title} key={article.id}/>
       );
     });
     return (

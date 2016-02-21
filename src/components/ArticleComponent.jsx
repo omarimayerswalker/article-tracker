@@ -6,7 +6,7 @@ var ArticleComponent = React.createClass({
   render: function() {
     return (
       <div className="article">
-        ArticleComponent
+        {this.props.title}
       </div>
     );
   }
