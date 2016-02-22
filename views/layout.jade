@@ -6,7 +6,7 @@ html
     script(src='/build/common.js')
     script(src='/socket.io/socket.io.js')
     script(type='text/javascript').
-      var socket = io();
+      var socket = io.connect();
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
   body
     block content

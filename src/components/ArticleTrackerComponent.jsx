@@ -33,10 +33,7 @@ var ArticleTrackerComponent = React.createClass({
       <div className="articleTracker">
         <h1>Article Tracker</h1>
         <h2>Article URL</h2>
-        <form className="articleForm">
-          <input type="text"></input>
-        </form>
-        <ArticleInputFormComponent/>
+        <ArticleInputFormComponent message=""/>
         <ArticleListComponent data={this.state.data}/>
       </div>
     );
