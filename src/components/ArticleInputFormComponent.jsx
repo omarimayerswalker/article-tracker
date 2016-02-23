@@ -9,16 +9,25 @@ var ArticleInputFormComponent = React.createClass({
     this.setState({title: e.target.value});
   },
 
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var title = this.state.title.trim();
+    if (!title) {return;}
+
+    // add server request
+    this.setState({title: ''});
+  },
+
   render: function() {
     return (
-      <div className="articleInputForm">
-        <form className="articleForm">
+        <form className="articleForm" onSubmit={this.handleSubmit}>
           <input type="text"
                  placeholder="Enter URL"
                  value={this.state.title}
+                 onChange={this.handleArticleChange}
           />
+          <input type="submit" value="Submit"/>
         </form>
-      </div>
     );
   }
 });
