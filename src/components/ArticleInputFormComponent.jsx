@@ -15,6 +15,7 @@ var ArticleInputFormComponent = React.createClass({
     if (!title) {return;}
 
     // add server request
+    this.props.onArticleSubmit({title: title});
     this.setState({title: ''});
   },
 

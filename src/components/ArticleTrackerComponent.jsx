@@ -13,8 +13,23 @@ var ArticleTrackerComponent = React.createClass({
   loadArticlesFromServer: function() {
     $.ajax({
       url: this.props.url,
-      datatype: 'json',
+      dataType: 'json',
       cache: false,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+
+  handleArticleSubmit: function(article) {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: article,
       success: function(data) {
         this.setState({data: data});
       }.bind(this),
@@ -33,7 +48,7 @@ var ArticleTrackerComponent = React.createClass({
       <div className="articleTracker">
         <h1>Article Tracker</h1>
         <h2>Article URL</h2>
-        <ArticleInputFormComponent message=""/>
+        <ArticleInputFormComponent onArticleSubmit={this.handleArticleSubmit}/>
         <ArticleListComponent data={this.state.data}/>
       </div>
     );

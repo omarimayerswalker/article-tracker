@@ -22,9 +22,24 @@ router.get('/api/articles', function(req, res, next) {
       if (articles.length > 0) {
         return res.send(articles);
       } else {
-        return res.send([{id: 1, title: 'No articles have been added'}]);
+        return res.send([{title: 'No articles have been added'}]);
       }
     });
+});
+
+/**
+ * POST /api/articles
+ * Inserts new article
+ */
+
+router.post('/api/articles', function(req, res, next) {
+  var title = req.body.title;
+  var newArticle = new Article({
+    title: title
+  });
+  console.log(newArticle);
+  newArticle.save(function(err) {
+  });
 });
 
 module.exports = router;
