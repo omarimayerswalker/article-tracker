@@ -41,6 +41,7 @@ var ArticleTrackerComponent = React.createClass({
 
   componentDidMount: function() {
     this.loadArticlesFromServer();
+    setInterval(this.loadArticlesFromServer, this.props.pollInterval);
   },
 
   render: function() {
