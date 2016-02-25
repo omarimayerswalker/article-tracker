@@ -2,8 +2,6 @@ var React = require('react');
 var ArticleListComponent = require('./ArticleListComponent.jsx');
 var ArticleInputFormComponent = require('./ArticleInputFormComponent.jsx');
 
-/* var ArticleTrackerActions = require('../actions/ArticleTrackerActions.jsx'); */
-
 var ArticleTrackerComponent = React.createClass({
 
   getInitialState: function() {
