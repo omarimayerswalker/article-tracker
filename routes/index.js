@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var Article = require('../models/article');
+var urlTitle = require('url-to-title');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -33,12 +34,19 @@ router.get('/api/articles', function(req, res, next) {
  */
 
 router.post('/api/articles', function(req, res, next) {
-  var title = req.body.title;
-  var newArticle = new Article({
-    title: title
-  });
-  console.log(newArticle);
-  newArticle.save(function(err) {
+  var input = req.body.title;
+
+  urlTitle(input, function(err, urlName) {
+    if(!err) {
+      var newArticle = new Article({
+        title: urlName,
+        url: input
+      });
+
+      console.log(newArticle);
+      newArticle.save(function(err) {
+      });
+    }
   });
 });
 
