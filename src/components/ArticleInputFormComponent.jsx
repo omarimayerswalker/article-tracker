@@ -23,7 +23,7 @@ var ArticleInputFormComponent = React.createClass({
     return (
         <form className="articleForm" onSubmit={this.handleSubmit}>
           <input type="text"
-                 placeholder="Enter URL"
+                 placeholder="https://article-url"
                  value={this.state.title}
                  onChange={this.handleArticleChange}
           />
