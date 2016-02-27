@@ -45,8 +45,6 @@ var ArticleTrackerComponent = React.createClass({
   render: function() {
     return (
       <div className="articleTracker">
-        <h1>Article Tracker</h1>
-        <h2>Article URL</h2>
         <ArticleInputFormComponent onArticleSubmit={this.handleArticleSubmit}/>
         <ArticleListComponent data={this.state.data}/>
       </div>
