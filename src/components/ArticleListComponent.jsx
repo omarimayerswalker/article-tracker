@@ -5,13 +5,13 @@ var ArticleListComponent = React.createClass({
   render: function() {
     var articles = this.props.data.map(function(article) {
       return (
-        <a href={article.url} key={article._id}><ArticleComponent title={article.title}/></a>
+        <li className="list-group-item"><a href={article.url} key={article._id}><ArticleComponent title={article.title}/></a></li>
       );
     });
     return (
-      <div className="articleList">
+      <ul className="articleList list-group">
         {articles}
-      </div>);
+      </ul>);
   }
 });
 

@@ -21,13 +21,19 @@ var ArticleInputFormComponent = React.createClass({
 
   render: function() {
     return (
-        <form className="articleForm" onSubmit={this.handleSubmit}>
+        <form className="articleForm input-group" onSubmit={this.handleSubmit}>
+          <span className="input-group-addon" id="basic-addon3">https://example.com/article</span>
           <input type="text"
-                 placeholder="https://article-url"
+                 className="form-control"
+                 id="basic-url"
+                 aria-describedby="basic-addon3"
                  value={this.state.title}
                  onChange={this.handleArticleChange}
           />
-          <input type="submit" value="Submit"/>
+          {/* <input type="submit" value="Submit"/> */}
+          <span className="input-group-btn">
+            <button className="btn btn-default" type="submit">Submit</button>
+          </span>
         </form>
     );
   }
