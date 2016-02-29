@@ -2,16 +2,22 @@ var React = require('react');
 var ArticleComponent = require('../components/ArticleComponent.jsx');
 
 var ArticleListComponent = React.createClass({
+  deleteArticle: function(e) {
+    var targetedArticleId = e.target.id;
+    console.log(targetedArticleId);
+  },
   render: function() {
+    var articleList = this;
     var articles = this.props.data.map(function(article) {
       return (
-        <li className="list-group-item"><a href={article.url} key={article._id}><ArticleComponent title={article.title}/></a></li>
+        <a className="list-group-item" href={article.url} key={article._id}><ArticleComponent title={article.title}/><span className="badge"><span onClick={articleList.deleteArticle} id={article._id} className="glyphicon glyphicon-remove"></span></span></a>
       );
     });
     return (
-      <ul className="articleList list-group">
+      <div className="articleList list-group">
         {articles}
-      </ul>);
+      </div>
+    );
   }
 });
 

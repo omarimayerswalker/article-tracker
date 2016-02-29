@@ -5,9 +5,9 @@ var React = require('react');
 var ArticleComponent = React.createClass({
   render: function() {
     return (
-      <div className="article">
+      <span className="article">
         {this.props.title}
-      </div>
+      </span>
     );
   }
 });

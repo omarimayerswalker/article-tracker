@@ -37,6 +37,19 @@ var ArticleTrackerComponent = React.createClass({
     });
   },
 
+  handleArticleRemoval: function(article) {
+    $.ajax({
+      id: article.targetedArticleId,
+      type: 'DELETE',
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.targetedArticleId, status, err.toString());
+      }.bind(this)
+    });
+  },
+
   componentDidMount: function() {
     this.loadArticlesFromServer();
     setInterval(this.loadArticlesFromServer, this.props.pollInterval);
@@ -46,7 +59,7 @@ var ArticleTrackerComponent = React.createClass({
     return (
       <div className="articleTracker">
         <ArticleInputFormComponent onArticleSubmit={this.handleArticleSubmit}/>
-        <ArticleListComponent data={this.state.data}/>
+        <ArticleListComponent data={this.state.data} onArticalRemoval={this.handleArticleRemoval}/>
       </div>
     );
   }
