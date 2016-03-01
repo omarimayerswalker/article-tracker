@@ -39,13 +39,15 @@ var ArticleTrackerComponent = React.createClass({
 
   handleArticleRemoval: function(article) {
     $.ajax({
-      id: article.targetedArticleId,
-      type: 'DELETE',
+      url: this.props.url + '/remove',
+      dataType: 'json',
+      type: 'POST',
+      data: article,
       success: function(data) {
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.targetedArticleId, status, err.toString());
+        console.error(this.props.url + '/remove', status, err.toString());
       }.bind(this)
     });
   },
@@ -59,7 +61,7 @@ var ArticleTrackerComponent = React.createClass({
     return (
       <div className="articleTracker">
         <ArticleInputFormComponent onArticleSubmit={this.handleArticleSubmit}/>
-        <ArticleListComponent data={this.state.data} onArticalRemoval={this.handleArticleRemoval}/>
+        <ArticleListComponent data={this.state.data} onArticleRemoval={this.handleArticleRemoval}/>
       </div>
     );
   }

@@ -29,6 +29,27 @@ router.get('/api/articles', function(req, res, next) {
 });
 
 /**
+ * DELETE /api/articles/remove
+ * Delete selected article
+ */
+
+router.post('/api/articles/remove', function(req, res, next) {
+  var toDeleteUrl = req.body.url;
+
+  Article.findOne({url: toDeleteUrl}, function(err, article) {
+    if (err) {return next(err);}
+
+    if (!article) {
+      return res.send([{title: 'Article not found'}]);
+    } else {
+      article.remove();
+    }
+
+  });
+
+});
+
+/**
  * POST /api/articles
  * Inserts new article
  */
