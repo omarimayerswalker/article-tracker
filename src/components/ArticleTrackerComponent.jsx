@@ -50,11 +50,11 @@ var ArticleTrackerComponent = React.createClass({
         console.error(this.props.url + '/remove', status, err.toString());
       }.bind(this)
     });
+    this.forceUpdate(this.loadArticlesFromServer);
   },
 
   componentDidMount: function() {
     this.loadArticlesFromServer();
-    setInterval(this.loadArticlesFromServer, this.props.pollInterval);
   },
 
   render: function() {

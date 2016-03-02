@@ -68,9 +68,14 @@ router.post('/api/articles', function(req, res, next) {
     } else {
       Article.search(input, function(err, searchResults) {
         if(!err) {
+          var results = [];
           for(var i = 0; i < searchResults.length; i++) {
-            console.log(searchResults[i].title);
+            results.push({_id: searchResults[i].id,
+                          title: searchResults[i].title,
+                          url: searchResults[i].url
+                         });
           }
+          return res.send(results);
         }
       });
     }

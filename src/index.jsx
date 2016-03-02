@@ -3,6 +3,6 @@ var ReactDOM      = require('react-dom');
 var ArticleTrackerComponent = require('./components/ArticleTrackerComponent.jsx');
 
 ReactDOM.render(
-  <ArticleTrackerComponent url="/api/articles" pollInterval={1000}/>,
+  <ArticleTrackerComponent url="/api/articles"/>,
   document.getElementById("react-container")
 );
