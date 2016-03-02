@@ -18,6 +18,12 @@ var ArticleInputFormComponent = React.createClass({
     this.setState({title: ''});
   },
 
+  handleReset: function(e) {
+    e.preventDefault();
+    this.props.onHandleReset();
+  },
+
+
   render: function() {
     return (
         <form className="articleForm input-group" onSubmit={this.handleSubmit}>
@@ -29,9 +35,9 @@ var ArticleInputFormComponent = React.createClass({
                  value={this.state.title}
                  onChange={this.handleArticleChange}
           />
-          {/* <input type="submit" value="Submit"/> */}
           <span className="input-group-btn">
-            <button className="btn btn-default" type="submit">Submit</button>
+            <button className="btn btn-default" type="reset" onClick={this.handleReset}><span className="glyphicon glyphicon-repeat"></span></button>
+            <button className="btn btn-default" type="submit" onSubmit={this.handleSubmit}>Submit</button>
           </span>
         </form>
     );

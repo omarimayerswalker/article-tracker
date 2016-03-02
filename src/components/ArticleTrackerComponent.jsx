@@ -60,7 +60,7 @@ var ArticleTrackerComponent = React.createClass({
   render: function() {
     return (
       <div className="articleTracker">
-        <ArticleInputFormComponent onArticleSubmit={this.handleArticleSubmit}/>
+        <ArticleInputFormComponent onArticleSubmit={this.handleArticleSubmit} onHandleReset={this.loadArticlesFromServer}/>
         <ArticleListComponent data={this.state.data} onArticleRemoval={this.handleArticleRemoval}/>
       </div>
     );
