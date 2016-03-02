@@ -5,7 +5,7 @@ var router = express.Router();
 var Article = require('../models/article');
 var urlTitle = require('url-to-title');
 
-/* GET home page. */
+/** GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'Main' });
 });
@@ -50,7 +50,7 @@ router.post('/api/articles/remove', function(req, res, next) {
 
 /**
  * POST /api/articles
- * Inserts new article
+ * Inserts new article or Searches articles by input
  */
 
 router.post('/api/articles', function(req, res, next) {
@@ -63,8 +63,15 @@ router.post('/api/articles', function(req, res, next) {
         url: input
       });
 
-      console.log(newArticle);
       newArticle.save(function(err) {
+      });
+    } else {
+      Article.search(input, function(err, searchResults) {
+        if(!err) {
+          for(var i = 0; i < searchResults.length; i++) {
+            console.log(searchResults[i].title);
+          }
+        }
       });
     }
   });
