@@ -44,7 +44,6 @@ router.post('/api/articles/remove', function(req, res, next) {
     } else {
       article.remove();
     }
-
   });
 
 });
