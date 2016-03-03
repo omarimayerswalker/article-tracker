@@ -57,8 +57,6 @@ router.post('/api/articles/add', function(req, res, next) {
   var input = req.body.title;
 
   urlTitle(input, function(err, urlName) {
-    if (err) {return next(err);}
-
     if(!err) {
       var newArticle = new Article({
         title: urlName,
@@ -83,8 +81,6 @@ router.post('/api/articles/add', function(req, res, next) {
       });
     } else {
       Article.search(input, function(err, searchResults) {
-        if (err) {return next(err);}
-
         if(!err) {
           var results = [];
           for(var i = 0; i < searchResults.length; i++) {
