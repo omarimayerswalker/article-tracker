@@ -24,7 +24,7 @@ var ArticleTrackerComponent = React.createClass({
 
   handleArticleSubmit: function(article) {
     $.ajax({
-      url: this.props.url,
+      url: this.props.url + '/add',
       dataType: 'json',
       type: 'POST',
       data: article,

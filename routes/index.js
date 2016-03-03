@@ -53,7 +53,7 @@ router.post('/api/articles/remove', function(req, res, next) {
  * Inserts new article or Searches articles by input
  */
 
-router.post('/api/articles', function(req, res, next) {
+router.post('/api/articles/add', function(req, res, next) {
   var input = req.body.title;
 
   urlTitle(input, function(err, urlName) {
@@ -64,6 +64,18 @@ router.post('/api/articles', function(req, res, next) {
       });
 
       newArticle.save(function(err) {
+        if(!err) {
+          Article.find()
+            .exec(function(err, articles) {
+              if (err) {return next(err);}
+
+              if (articles.length > 0) {
+                return res.send(articles);
+              } else {
+                return res.send([{title: 'No articles have been added'}]);
+              }
+            });
+        }
       });
     } else {
       Article.search(input, function(err, searchResults) {
